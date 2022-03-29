@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+        
+#  api:
+#    container_name: api_usuario
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    image: api/usuario-telco
+#    ports:
+#      - '8090:8080'
+#    volumes:
+#      - './log:/var/log'
+#    restart: on-failure:5
+#    environment:
+#      - DB_HOST=dbpostgresql
+#    depends_on:
+#      - dbpostgresql
+#    networks:
+#      - netpostgres
+      
+  dbpostgresql:
+    image: postgres
+    container_name: postgres-container
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5434:5432'
+    volumes:
+      - ../postgres/db-data:/var/lib/postgresql/data
+    networks:
+      - netpostgres
+
+networks:
+  netpostgres:
+    name: db_postgres_network
+      
+    
