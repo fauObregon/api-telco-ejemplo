@@ -3,12 +3,12 @@
  */
 package ec.com.teconet.api.usuario;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  * @author fauob
  *
  */
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface UsuarioRepository extends MongoRepository<Usuario, Long> {
 
 }
